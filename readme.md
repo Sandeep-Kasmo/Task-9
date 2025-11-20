@@ -5,10 +5,17 @@ It also performs SCD Type-2 to track historical changes in customer data.
 
 📂 Project Structure
 project/
-│── extract.py
-│── transform.py
-│── load.py
-│── main.py
+
+|──src/
+
+    │── extract.py
+    
+    │── transform.py
+    
+    │── load.py
+    
+    │── main.py
+
 │── README.md
 
 
@@ -140,4 +147,5 @@ others → VARCHAR(255)
 👨‍💻 Author
 
 Sandeep Reddy
+
 Python | Data Engineering | SQL
