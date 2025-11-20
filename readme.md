@@ -84,13 +84,21 @@ Maps Pandas dtypes → MySQL datatypes
 Inserts rows using executemany for performance
 
 🛠 Technology Stack
+
 Component	Technology
+
 Language	Python 3
+
 Database	MySQL
+
 Libraries	Pandas, mysql-connector-python
+
 Data Processing	SCD Type-2 Logic
+
 ▶️ How to Run the Project
+
 1️⃣ Install requirements
+
 pip install pandas mysql-connector-python
 
 2️⃣ Configure Database Connection
@@ -98,13 +106,18 @@ pip install pandas mysql-connector-python
 Inside extract.py, update:
 
 mysql.connector.connect(
+
     host="localhost",
+    
     user="root",
+    
     password="your_password",
+    
     database="your_database"
 )
 
 3️⃣ Run the ETL Job
+
 python main.py
 
 📊 Output
@@ -122,6 +135,7 @@ Always keeps one active record (is_current = 1)
 Example final columns:
 
 id, name, email, phone, address,
+
 effective_from, effective_to, is_current
 
 📌 Notes
@@ -149,3 +163,4 @@ others → VARCHAR(255)
 Sandeep Reddy
 
 Python | Data Engineering | SQL
+
