@@ -26,8 +26,8 @@ def SCDType2(dataframe1,dataframe2):
     
     # close old records
     today=pd.to_datetime(datetime.today().date())
-    dataframe1.loc[dataframe1['customer_id'].isin(dataframe2['customer_id']),'end_date']=today
-    dataframe1.loc[dataframe1['customer_id'].isin(dataframe2['customer_id']),'is_current']=False
+    dataframe1.loc[dataframe1['customer_id'].isin(dataframe_new['customer_id']),'end_date']=today
+    dataframe1.loc[dataframe1['customer_id'].isin(dataframe_new['customer_id']),'is_current']=False
 
     # add scd type 2 columns to changes
     dataframe_new['start_date']=today
@@ -35,7 +35,18 @@ def SCDType2(dataframe1,dataframe2):
     dataframe_new['is_current']=True
 
     # now add the new data to existing data and store in new dataframe named scdtype2
-    df_type2=pd.concat([dataframe1,dataframe_new],ignore_index=True)
+    df_type=pd.concat([dataframe1,dataframe_new],ignore_index=True)
+
+
+    #identify the new entries and create a dataframe
+    df_new_entries=dataframe2[~dataframe2['customer_id'].isin(dataframe1['customer_id'])]
+    df_new_entries['start_date']=today
+    df_new_entries['end_date']=None
+    df_new_entries['is_current']=True
+
+    df_type2=pd.concat([df_type,df_new_entries],ignore_index=True)
+
+
     return df_type2
 
 
